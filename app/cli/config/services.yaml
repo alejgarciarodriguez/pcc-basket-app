@@ -1,0 +1,29 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    _instanceof:
+        Alejgarciarodriguez\PccBasketApp\Common\Domain\EventHandler:
+            tags:
+                - { name: messenger.message_handler, bus: event.bus }
+
+        Alejgarciarodriguez\PccBasketApp\Common\Domain\CommandHandler:
+            tags:
+                - { name: messenger.message_handler, bus: command.bus }
+
+        Alejgarciarodriguez\PccBasketApp\Common\Domain\QueryHandler:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }
+
+    Alejgarciarodriguez\PccBasketApp\:
+        resource: '../../../src/*'
+
+    Alejgarciarodriguez\PccBasketApp\Cli\:
+        resource: '../src/*'
+        exclude: '../src/PccBasketAppCliKernel.php'
