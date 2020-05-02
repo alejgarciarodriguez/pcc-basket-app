@@ -2,7 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Player\Domain;
 
-class RemovePlayerResponse
+class RemovePlayerResponse implements \JsonSerializable
 {
     private $number;
 
@@ -11,8 +11,16 @@ class RemovePlayerResponse
         $this->number = $number;
     }
 
+    public function jsonSerialize()
+    {
+        return [
+            'status' => 'success',
+            'message' => sprintf('Player with number \'%d\' was removed', $this->number)
+        ];
+    }
+
     public function __toString()
     {
-        return (string)json_encode(sprintf('Player with number "%d" was removed', $this->number));
+        return (string)json_encode($this->jsonSerialize());
     }
 }

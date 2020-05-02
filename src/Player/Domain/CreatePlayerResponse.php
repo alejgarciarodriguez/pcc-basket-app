@@ -2,10 +2,18 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Player\Domain;
 
-class CreatePlayerResponse
+class CreatePlayerResponse implements \JsonSerializable
 {
-    public function __construct(Player $player)
+    public function jsonSerialize(): array
     {
-        $this->player = $player;
+        return [
+            'status' => 'success',
+            'message' => 'Player created successfully'
+        ];
+    }
+
+    public function __toString()
+    {
+        return (string)json_encode($this->jsonSerialize());
     }
 }

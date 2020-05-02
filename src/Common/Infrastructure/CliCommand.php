@@ -2,6 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Common\Infrastructure;
 
+use Alejgarciarodriguez\PccBasketApp\Common\Domain\Exception;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -25,6 +26,9 @@ abstract class CliCommand extends SymfonyCommand
             $exceptions = $e->getNestedExceptions();
             $first = reset($exceptions);
             $this->output->writeln(json_encode($first));
+            return 1;
+        } catch (Exception $e){
+            $this->output->writeln(json_encode($e));
             return 1;
         }
 

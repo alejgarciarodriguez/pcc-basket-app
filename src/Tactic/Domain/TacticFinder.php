@@ -2,7 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Tactic\Domain;
 
-use Alejgarciarodriguez\PccBasketApp\Tactic\Domain\Exception\TacticNotFound;
+use Alejgarciarodriguez\PccBasketApp\Tactic\Domain\Exception\TacticNotProvided;
 
 class TacticFinder
 {
@@ -16,7 +16,7 @@ class TacticFinder
     /**
      * @param string $tactics
      * @return Tactic
-     * @throws TacticNotFound
+     * @throws TacticNotProvided
      */
     public function __invoke(string $tactics): Tactic
     {
@@ -26,6 +26,6 @@ class TacticFinder
             }
         }
 
-        throw new TacticNotFound();
+        throw new TacticNotProvided();
     }
 }

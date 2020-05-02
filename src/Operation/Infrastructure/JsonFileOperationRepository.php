@@ -17,7 +17,7 @@ class JsonFileOperationRepository implements OperationRepository
 
     private function getFile(): string
     {
-        return $this->parameterBag->get('kernel.project_dir') . '/../../operations.txt';
+        return $this->parameterBag->get('kernel.project_dir') . '/../../operations.dat';
     }
 
     private function createIfNotExists(): void

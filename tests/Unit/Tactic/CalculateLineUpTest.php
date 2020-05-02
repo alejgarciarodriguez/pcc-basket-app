@@ -140,8 +140,8 @@ class CalculateLineUpTest extends TestCase
             ['defense', $this->defenseLineUp(), true],
             ['defensa', $this->zoneDefenseLineUp(), false],
             ['zone-defense', $this->attackLineUp(), false],
-            ['defensa zonal', $this->defenseLineUp(), false],
-            ['zone defense', $this->zoneDefenseLineUp(), true],
+            ['defensa-zonal', $this->defenseLineUp(), false],
+            ['zone-defense', $this->zoneDefenseLineUp(), true],
         ];
     }
 

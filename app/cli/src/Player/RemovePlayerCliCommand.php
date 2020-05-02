@@ -23,7 +23,7 @@ class RemovePlayerCliCommand extends CliCommand
         $this
             ->setName('player:delete')
             ->addOption('number', null, InputOption::VALUE_REQUIRED)
-            ->setAliases(['player:remove', 'delete:player', 'remove:player'])
+            ->setAliases(['player:remove', 'delete:player', 'remove:player', 'players:remove'])
             ->setDescription('Remove player by number')
         ;
     }

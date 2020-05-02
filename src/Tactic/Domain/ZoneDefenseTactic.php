@@ -8,7 +8,7 @@ class ZoneDefenseTactic implements Tactic
 
     public function aliases(): array
     {
-        return ['zone defense', 'zone-defense', 'defensa-zonal', 'defensa zonal'];
+        return ['zone-defense', 'defense-zone', 'defensa-zonal'];
     }
 
     public function requirements(): array

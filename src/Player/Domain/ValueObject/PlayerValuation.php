@@ -10,6 +10,10 @@ final class PlayerValuation
 
     public function __construct($value)
     {
+        if(null === $value){
+            throw new PlayerValuationNotValid();
+        }
+
         $value = (int)$value;
 
         if($value < 0 || $value > 100){

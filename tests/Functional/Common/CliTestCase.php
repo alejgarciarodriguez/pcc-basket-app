@@ -15,6 +15,7 @@ class CliTestCase extends WebTestCase
     protected function setUp()
     {
         static::bootKernel();
+        $this->removeFile();
     }
 
     protected function getFile(): string
@@ -22,11 +23,16 @@ class CliTestCase extends WebTestCase
         return self::$container->getParameter('kernel.project_dir') . '/../../players.json';
     }
 
-    protected function tearDown(): void
+    private function removeFile()
     {
         $file = $this->getFile();
         if(file_exists($file)){
             unlink($file);
         }
+    }
+
+    protected function tearDown(): void
+    {
+        $this->removeFile();
     }
 }

@@ -4,9 +4,9 @@ namespace Alejgarciarodriguez\PccBasketApp\Tactic\Domain\Exception;
 
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\Exception;
 
-class TacticNotFound extends Exception
+class TacticNotProvided extends Exception
 {
-    public function __construct($message = "This tactics was not found")
+    public function __construct($message = "No tactic provided")
     {
         parent::__construct($message);
     }

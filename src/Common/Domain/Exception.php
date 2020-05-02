@@ -16,4 +16,9 @@ class Exception extends \Exception implements \JsonSerializable
             'message' => $this->getMessage()
         ];
     }
+
+    public function __toString()
+    {
+        return (string)json_encode($this->jsonSerialize());
+    }
 }
