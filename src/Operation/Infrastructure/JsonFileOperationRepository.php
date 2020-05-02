@@ -15,7 +15,7 @@ class JsonFileOperationRepository implements OperationRepository
         $this->parameterBag = $parameterBag;
     }
 
-    private function getFile()
+    private function getFile(): string
     {
         return $this->parameterBag->get('kernel.project_dir') . '/../../operations.txt';
     }
