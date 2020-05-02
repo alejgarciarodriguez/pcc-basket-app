@@ -2,9 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Player\Domain;
 
-use Alejgarciarodriguez\PccBasketApp\Common\Domain\Response;
-
-class GetPlayersResponse implements Response
+class GetPlayersResponse
 {
     private $team;
 
@@ -27,6 +25,6 @@ class GetPlayersResponse implements Response
 
     public function __toString(): string
     {
-        return (string)json_encode($this->team);
+        return (string)json_encode($this->team, JSON_PRETTY_PRINT);
     }
 }

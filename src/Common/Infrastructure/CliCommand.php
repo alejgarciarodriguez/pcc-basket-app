@@ -5,12 +5,14 @@ namespace Alejgarciarodriguez\PccBasketApp\Common\Infrastructure;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 
 abstract class CliCommand extends SymfonyCommand
 {
+    /** @var InputInterface $input */
     protected $input;
+
+    /** @var OutputInterface $output */
     protected $output;
 
     protected function execute(InputInterface $input, OutputInterface $output): int

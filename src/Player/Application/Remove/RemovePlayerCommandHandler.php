@@ -2,7 +2,6 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Player\Application\Remove;
 
-use Alejgarciarodriguez\PccBasketApp\Common\Domain\Command;
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\CommandHandler;
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\EventBus;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\Event\PlayerRemoved;

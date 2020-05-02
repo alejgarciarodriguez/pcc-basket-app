@@ -12,7 +12,7 @@ use Alejgarciarodriguez\PccBasketApp\Tests\Unit\Common\TestCase;
 
 class RemovePlayerTest extends TestCase
 {
-    public function testRemovePlayerIfExists()
+    public function testRemovePlayerIfExists(): void
     {
         $command = new RemovePlayerCommand(
             $this->getFaker()->numberBetween(1, 99)

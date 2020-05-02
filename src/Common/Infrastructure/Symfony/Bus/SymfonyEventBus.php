@@ -1,6 +1,6 @@
 <?php
 
-namespace Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\Bus;
+namespace Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\Symfony\Bus;
 
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\Event;
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\EventBus;

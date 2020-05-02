@@ -2,6 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Cli;
 
+use Alejgarciarodriguez\PccBasketApp\Tactic\Infrastructure\Symfony\DependencyInjection\TacticsCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -51,6 +52,11 @@ class PccBasketAppCliKernel extends BaseKernel
     public function getCacheDir(): string
     {
         return $this->getProjectDir().'/../../var/cli/cache';
+    }
+
+    protected function build(ContainerBuilder $container): void
+    {
+        $container->addCompilerPass(new TacticsCompilerPass());
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes): void

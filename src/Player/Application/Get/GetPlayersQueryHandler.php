@@ -5,8 +5,8 @@ namespace Alejgarciarodriguez\PccBasketApp\Player\Application\Get;
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\QueryHandler;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\GetPlayersResponse;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\OrderDir;
-use Alejgarciarodriguez\PccBasketApp\Player\Domain\PlayerRepository;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\OrderField;
+use Alejgarciarodriguez\PccBasketApp\Player\Domain\PlayerRepository;
 
 class GetPlayersQueryHandler implements QueryHandler
 {

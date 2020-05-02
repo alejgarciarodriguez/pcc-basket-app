@@ -9,6 +9,9 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
     _instanceof:
+        Alejgarciarodriguez\PccBasketApp\Tactic\Domain\Tactic:
+            tags: ['app.tactics']
+
         Alejgarciarodriguez\PccBasketApp\Common\Domain\EventHandler:
             tags:
                 - { name: messenger.message_handler, bus: event.bus }

@@ -24,7 +24,7 @@ class GetPlayersUseCaseCommand extends CliCommand
             ->setName('player:list')
             ->addOption('order', null, InputOption::VALUE_OPTIONAL)
             ->addOption('dir', null, InputOption::VALUE_OPTIONAL, 'asc|desc', 'asc')
-            ->setAliases(['list:player', 'get:player', 'player:get'])
+            ->setAliases(['list:player', 'get:player', 'player:get', 'players:list', 'players:get', 'get:players'])
             ->setDescription('Outputs all players in JSON format')
         ;
     }
