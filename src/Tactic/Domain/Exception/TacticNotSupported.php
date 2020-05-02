@@ -6,7 +6,7 @@ use Alejgarciarodriguez\PccBasketApp\Common\Domain\Exception;
 
 class TacticNotSupported extends Exception
 {
-    public function __construct($message = "Not supported")
+    public function __construct($message = "Not enough players for this tactic")
     {
         parent::__construct($message);
     }

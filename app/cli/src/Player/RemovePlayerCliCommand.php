@@ -2,7 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Cli\Player;
 
-use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\CliCommand;
+use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\Symfony\Command\CliCommand;
 use Alejgarciarodriguez\PccBasketApp\Player\Application\Remove\RemovePlayerCommand;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\RemovePlayerResponse;
 use Symfony\Component\Console\Input\InputOption;
@@ -21,9 +21,8 @@ class RemovePlayerCliCommand extends CliCommand
     protected function configure(): void
     {
         $this
-            ->setName('player:delete')
+            ->setName('player:remove')
             ->addOption('number', null, InputOption::VALUE_REQUIRED)
-            ->setAliases(['player:remove', 'delete:player', 'remove:player', 'players:remove'])
             ->setDescription('Remove player by number')
         ;
     }

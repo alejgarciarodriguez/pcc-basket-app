@@ -2,11 +2,9 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Tests\Functional\Player;
 
-use Alejgarciarodriguez\PccBasketApp\Cli\PccBasketAppCliKernel;
 use Alejgarciarodriguez\PccBasketApp\Cli\Player\CreatePlayerCliCommand;
 use Alejgarciarodriguez\PccBasketApp\Tests\Functional\Common\CliTestCase;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class CreatePlayerTest extends CliTestCase

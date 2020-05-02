@@ -1,6 +1,6 @@
 <?php
 
-namespace Alejgarciarodriguez\PccBasketApp\Common\Infrastructure;
+namespace Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\Symfony\Command;
 
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\Exception;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;

@@ -2,7 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Cli\Player;
 
-use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\CliCommand;
+use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\Symfony\Command\CliCommand;
 use Alejgarciarodriguez\PccBasketApp\Player\Application\Create\CreatePlayerCommand;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\CreatePlayerResponse;
 use Symfony\Component\Console\Input\InputOption;
@@ -22,11 +22,11 @@ class CreatePlayerCliCommand extends CliCommand
     {
         $this
             ->setName('player:create')
-            ->setAliases(['create:player', 'add:player', 'player:add', 'players:create'])
             ->addOption('number', null, InputOption::VALUE_REQUIRED)
             ->addOption('name', null, InputOption::VALUE_REQUIRED)
             ->addOption('role', null, InputOption::VALUE_REQUIRED)
             ->addOption('valuation', null, InputOption::VALUE_REQUIRED, 'Integer between 0 and 100 inclusive')
+            ->setDescription('Creates a new player')
         ;
     }
 

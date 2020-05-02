@@ -2,7 +2,7 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Cli\Player;
 
-use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\CliCommand;
+use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\Symfony\Command\CliCommand;
 use Alejgarciarodriguez\PccBasketApp\Player\Application\Get\GetPlayersQuery;
 use Alejgarciarodriguez\PccBasketApp\Player\PlayerOrder;
 use Symfony\Component\Console\Input\InputOption;
@@ -25,7 +25,6 @@ class GetPlayersCliCommand extends CliCommand
             ->setName('player:list')
             ->addOption('order', null, InputOption::VALUE_OPTIONAL)
             ->addOption('dir', null, InputOption::VALUE_OPTIONAL, 'asc|desc', 'asc')
-            ->setAliases(['list:player', 'get:player', 'player:get', 'players:list', 'players:get', 'get:players'])
             ->setDescription('Outputs all players in JSON format')
         ;
     }
