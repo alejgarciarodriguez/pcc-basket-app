@@ -2,47 +2,30 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Tests\Functional\Player;
 
-use Alejgarciarodriguez\PccBasketApp\Cli\PccBasketAppCliKernel;
-use Alejgarciarodriguez\PccBasketApp\Cli\Player\GetPlayersUseCaseCommand;
+use Alejgarciarodriguez\PccBasketApp\Cli\Player\GetPlayersCliCommand;
+use Alejgarciarodriguez\PccBasketApp\Player\Domain\Player;
+use Alejgarciarodriguez\PccBasketApp\Tests\Functional\Common\CliTestCase;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class GetPlayersTest extends WebTestCase
+class GetPlayersTest extends CliTestCase
 {
-    protected static function getKernelClass()
-    {
-        return PccBasketAppCliKernel::class;
-    }
-
-    protected function setUp()
-    {
-        static::bootKernel();
-    }
-
-    private function getFile(): string
-    {
-        return self::$container->getParameter('kernel.project_dir') . '/../../players.json';
-    }
-
-    protected function tearDown(): void
-    {
-        $file = $this->getFile();
-        if(file_exists($file)){
-            unlink($file);
-        }
-    }
-
     public function testListIsPrinted(): void
     {
-        file_put_contents($this->getFile(), '[{"number":9,"name":"Felipe Reyes","role":"PIVOT","valuation":100}]');
+        $player = Player::fromArray([
+            'number' => 9,
+            'name' => 'Felipe Reyes',
+            'role' => 'PIVOT',
+            'valuation' => 100
+        ]);
+        file_put_contents($this->getFile(), json_encode([$player->jsonSerialize()]));
         $application = new Application(self::$kernel);
-        $command = new GetPlayersUseCaseCommand(self::$container->get('query.bus'));
+        $command = new GetPlayersCliCommand(self::$container->get('query.bus'));
         $application->add($command);
         $commandTester = new CommandTester($command);
         $commandTester->execute([]);
         $output = trim($commandTester->getDisplay());
         $this->assertEquals(0, $commandTester->getStatusCode());
-        $this->assertEquals('[{"number":9,"name":"Felipe Reyes","role":"PIVOT","valuation":100}]', $output);
+        $this->assertEquals(json_encode([$player->jsonSerialize()], JSON_PRETTY_PRINT), $output);
     }
 }

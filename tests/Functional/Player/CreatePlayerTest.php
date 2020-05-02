@@ -3,40 +3,18 @@
 namespace Alejgarciarodriguez\PccBasketApp\Tests\Functional\Player;
 
 use Alejgarciarodriguez\PccBasketApp\Cli\PccBasketAppCliKernel;
-use Alejgarciarodriguez\PccBasketApp\Cli\Player\CreatePlayerUseCaseCommand;
+use Alejgarciarodriguez\PccBasketApp\Cli\Player\CreatePlayerCliCommand;
+use Alejgarciarodriguez\PccBasketApp\Tests\Functional\Common\CliTestCase;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class CreatePlayerTest extends WebTestCase
+class CreatePlayerTest extends CliTestCase
 {
-    protected static function getKernelClass()
-    {
-        return PccBasketAppCliKernel::class;
-    }
-
-    protected function setUp()
-    {
-        static::bootKernel();
-    }
-
-    private function getFile()
-    {
-        return self::$container->getParameter('kernel.project_dir') . '/../../players.json';
-    }
-
-    protected function tearDown(): void
-    {
-        $file = $this->getFile();
-        if(file_exists($file)){
-            unlink($file);
-        }
-    }
-
     public function testPlayerIsCreated(): void
     {
         $application = new Application(self::$kernel);
-        $command = new CreatePlayerUseCaseCommand(self::$container->get('command.bus'));
+        $command = new CreatePlayerCliCommand(self::$container->get('command.bus'));
         $application->add($command);
         $commandTester = new CommandTester($command);
         $commandTester->execute([
@@ -52,7 +30,7 @@ class CreatePlayerTest extends WebTestCase
     {
         file_put_contents($this->getFile(), '[{"number":9,"name":"Felipe Reyes","role":"PIVOT","valuation":100}]');
         $application = new Application(self::$kernel);
-        $command = new CreatePlayerUseCaseCommand(self::$container->get('command.bus'));
+        $command = new CreatePlayerCliCommand(self::$container->get('command.bus'));
         $application->add($command);
         $commandTester = new CommandTester($command);
         $commandTester->execute([

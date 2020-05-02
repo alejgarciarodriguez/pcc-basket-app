@@ -7,7 +7,7 @@ use Alejgarciarodriguez\PccBasketApp\Player\Application\Create\CreatePlayerComma
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-class CreatePlayerUseCaseCommand extends CliCommand
+class CreatePlayerCliCommand extends CliCommand
 {
     private $bus;
 

@@ -4,8 +4,6 @@ namespace Alejgarciarodriguez\PccBasketApp\Player\Application\Get;
 
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\QueryHandler;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\GetPlayersResponse;
-use Alejgarciarodriguez\PccBasketApp\Player\Domain\OrderDir;
-use Alejgarciarodriguez\PccBasketApp\Player\Domain\OrderField;
 use Alejgarciarodriguez\PccBasketApp\Player\Domain\PlayerRepository;
 
 class GetPlayersQueryHandler implements QueryHandler
@@ -20,10 +18,7 @@ class GetPlayersQueryHandler implements QueryHandler
     public function __invoke(GetPlayersQuery $query)
     {
         $team = $this->playerRepository->findAll();
-
-        $sortField = new OrderField($query->getField());
-        $sortDir = new OrderDir($query->getDir());
-
+        usort($team, $query->getOrder()->callback());
         return new GetPlayersResponse($team);
     }
 }

@@ -3,31 +3,19 @@
 namespace Alejgarciarodriguez\PccBasketApp\Player\Application\Get;
 
 use Alejgarciarodriguez\PccBasketApp\Common\Domain\Query;
+use Alejgarciarodriguez\PccBasketApp\Player\PlayerOrder;
 
 class GetPlayersQuery implements Query
 {
-    private $field;
-    private $dir;
+    private $order;
 
-    public function __construct($field, $dir)
+    public function __construct(PlayerOrder $playerOrder)
     {
-        $this->field = $field;
-        $this->dir = $dir;
+        $this->order = $playerOrder;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getField()
+    public function getOrder(): PlayerOrder
     {
-        return $this->field;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDir()
-    {
-        return $this->dir;
+        return $this->order;
     }
 }

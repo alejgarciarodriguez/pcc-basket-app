@@ -1,6 +1,6 @@
 <?php
 
-namespace Alejgarciarodriguez\PccBasketApp\Cli\Tactics;
+namespace Alejgarciarodriguez\PccBasketApp\Cli\Tactic;
 
 use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\CliCommand;
 use Alejgarciarodriguez\PccBasketApp\Tactic\Application\CalculateLineUpQuery;

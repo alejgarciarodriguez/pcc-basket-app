@@ -2,23 +2,23 @@
 
 namespace Alejgarciarodriguez\PccBasketApp\Tactic\Application;
 
-use Alejgarciarodriguez\PccBasketApp\Tactics\Domain\Exception\TacticsNotFound;
+use Alejgarciarodriguez\PccBasketApp\Tactic\Domain\Exception\TacticNotFound;
 
 class CalculateLineUpQuery
 {
-    private $tactics;
+    private $tactic;
 
-    public function __construct(?string $tactics)
+    public function __construct(?string $tactic)
     {
-        if(!is_string($tactics)){
-            throw new TacticsNotFound();
+        if(!is_string($tactic)){
+            throw new TacticNotFound();
         }
 
-        $this->tactics = $tactics;
+        $this->tactic = $tactic;
     }
 
-    public function getTactics(): string
+    public function getTactic(): string
     {
-        return $this->tactics;
+        return $this->tactic;
     }
 }

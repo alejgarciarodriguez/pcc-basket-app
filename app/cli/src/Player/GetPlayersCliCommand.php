@@ -4,11 +4,12 @@ namespace Alejgarciarodriguez\PccBasketApp\Cli\Player;
 
 use Alejgarciarodriguez\PccBasketApp\Common\Infrastructure\CliCommand;
 use Alejgarciarodriguez\PccBasketApp\Player\Application\Get\GetPlayersQuery;
+use Alejgarciarodriguez\PccBasketApp\Player\PlayerOrder;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 
-class GetPlayersUseCaseCommand extends CliCommand
+class GetPlayersCliCommand extends CliCommand
 {
     private $bus;
 
@@ -32,8 +33,7 @@ class GetPlayersUseCaseCommand extends CliCommand
     protected function useCase(): void
     {
         $response = $this->bus->dispatch(new GetPlayersQuery(
-            $this->input->getOption('order'),
-            $this->input->getOption('dir')
+            new PlayerOrder($this->input->getOption('order'),$this->input->getOption('dir'))
         ))->last(HandledStamp::class)->getResult();
 
         $this->output->writeln($response);
